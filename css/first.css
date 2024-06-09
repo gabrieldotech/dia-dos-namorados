@@ -1,0 +1,223 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset CSS e definição da fonte padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos do body */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    padding: 0 1rem;
+    background-color: #020412;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Animação de fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação de fadeOut */
+.fade-out {
+    animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        background-color: #020412;
+    }
+}
+
+/* Estilos do título do carousel */
+.carousel-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.carousel-title span {
+    color: #d81b60;
+}
+
+/* Estilos dos cards do carousel */
+.card {
+    max-width: 360px;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    margin: 20px auto; 
+    transition: transform 0.3s;
+}
+
+.card.hover-effect {
+    transform: scale(1.03) rotate(-1deg);
+}
+
+.card-image {
+    margin-bottom: 1rem;
+}
+
+.card-image img {
+    width: 100%;
+    aspect-ratio: 3/3;
+    object-fit:cover; 
+    border-radius: 0.25rem;
+}
+
+.card-title, .card-description {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textSlideUp 0.5s forwards ease-in-out 0.5s;
+}
+
+@keyframes textSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    
+}
+
+.card-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+/* Estilos do container do carousel */
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    display: flex; 
+    justify-content: center; 
+    box-sizing: border-box;
+}
+
+/* Estilos dos botões de navegação do carousel */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    background-color:#020412;
+    color: #d81b60;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+
+/* Media queries */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 100%;
+        margin-top: 20%; 
+    }
+
+    .carousel-prev, .carousel-next {
+        font-size: 1.5rem;
+        padding: 0.8px;
+    }
+    
+    .card {
+        max-width: calc(100% - 20px); 
+        margin: 10px;
+        padding: 1rem; 
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
+
+    .carousel-title {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-prev, .carousel-next {
+        font-size: 1.8rem;
+        padding: 5.8px;
+        top: 330px;
+        margin: 10px;
+        background-color:#020412;
+        color: #d81b60;
+        border-radius: 60%;
+    }
+
+    .card {
+        padding: 0.5rem;
+    }
+
+    .card-image img {
+        width: 100%;
+        aspect-ratio: 2.6/3;
+        object-fit:cover; 
+        border-radius: 0.25rem;
+    }
+}
