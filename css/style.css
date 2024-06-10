@@ -128,7 +128,7 @@ h1 {
 /* Media Queries */
 @media (max-width: 768px) {
   h1 {
-    font-size: 40px; 
+    font-size: 35px; 
     margin-bottom: 20%;
   }
 
